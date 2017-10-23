@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.3.13.RELEASE</spring.version>
         <java.version>1.8</java.version>
-        <my.arch.core>1.0.0.4-SNAPSHOT</my.arch.core>
+        <my.arch.core>1.0.0.5-SNAPSHOT</my.arch.core>
     </properties>
 
     <dependencies>
