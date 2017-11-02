@@ -18,8 +18,23 @@
 
     <bean id="commandManager" class="com.jun.chu.demo.i746methodInjection.CommandManager"/>
 
-    <!--<bean class="com.jun.chu.demo.i746methodInjection.CommandManagerV2" ></bean>-->
+    <!--Instantiation with a static factory method-->
+    <bean id="clientService"
+          class="com.jun.chu.demo.i732instantiatingBeans.ClientService"
+          factory-method="createInstance"/>
 
-    <!-- more bean definitions for services go here -->
+
+    <!-- the factory bean, which contains a method called createInstance() -->
+    <bean id="serviceLocator" class="com.jun.chu.demo.i732instantiatingBeans.DefaultServiceLocator">
+        <!-- inject any dependencies required by this locator bean -->
+    </bean>
+
+    <!-- the bean to be created via the factory bean -->
+    <bean id="clientService2"
+          factory-bean="serviceLocator"
+          factory-method="createClientServiceInstance"/>
+
+
+    <!--<bean class="com.jun.chu.demo.i746methodInjection.CommandManagerV2" ></bean>-->
 
 </beans>

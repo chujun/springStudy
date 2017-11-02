@@ -1,5 +1,6 @@
 package com.jun.chu.demo.i746methodInjection;
 
+import com.jun.chu.demo.i732instantiatingBeans.ClientService;
 import com.jun.chu.demo.i746methodInjection.command.Command;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,5 +17,13 @@ public class Application {
 
         Command command2 = (Command) commandManager.process("state2");
         System.out.println(command1 == command2);
+
+        ClientService clientService = context.getBean("clientService", ClientService.class);
+        System.out.println(clientService);
+
+        ClientService clientService2 = context.getBean("clientService2", ClientService.class);
+        //不同的方法创建bean
+        System.out.println(clientService2 == clientService);
+
     }
 }
