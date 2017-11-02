@@ -32,6 +32,12 @@
             <groupId>com.jun.chu</groupId>
             <artifactId>arch-core</artifactId>
             <version>${my.arch.core}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
