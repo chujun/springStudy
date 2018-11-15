@@ -27,17 +27,17 @@ public class ProductFactory implements FactoryBean<Product> {
 
     public static void main(String[] args) {
         //这儿不适用ApplicationContext容器,而是用最基本的DefaultListableBeanFactory容器,手动加载资源
+        //容器初始化
         ClassPathResource res = new ClassPathResource("application/factorybean/application.xml");
-
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
-
         reader.loadBeanDefinitions(res);
 
+        //容器使用
         Product product = (Product) factory.getBean("productFactory");
-
         System.out.println(product);
+        Product product2 = (Product) factory.getBean("productFactory");
+        System.out.println(product == product2);
         ProductFactory productFactory = (ProductFactory) factory.getBean("&productFactory");
         System.out.println(productFactory);
     }
